@@ -60,7 +60,7 @@ let showUsersParam = (id) => {
         .then(response => response.json())
         .then(parsedData => displaySingleUser(parsedData))
         .catch((error) => console.warn(error));
-        singleUser.value = "";
+    singleUser.value = "";
 }
 
 getUserById.addEventListener("click", function (inputValue) {
@@ -74,18 +74,15 @@ let postNew = document.querySelector(".postNew");
 
 let enterPost = () => {
     fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                "studentName": newUser.value,
-            })
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            "studentName": newUser.value,
         })
-        .then(response => response.json())
-        .then(parsedData => postUser(parsedData))
-        .catch(error => console.warn(error));
-        newUser.value = "";
+    })
+    newUser.value = "";
 }
 
 postNew.addEventListener("click", enterPost)
@@ -118,6 +115,7 @@ const addChange = () => {
 updateUser.addEventListener('click', addChange);
 
 //XXXXXXXXXXXXXXXXXXXXXXXXXX DELETE REQUEST XXXXXXXXXXXXXXXXXXXXXXXXXX
+
 let deleteUserById = document.querySelector('.deleteUserById');
 
 const eraseUser = () => {
@@ -129,7 +127,6 @@ const eraseUser = () => {
         .then(parsedData => console.log(parsedData))
         .catch((error) => console.warn(error));
     idToDelete.value = "";
-
 }
 
 deleteUserById.addEventListener('click', eraseUser)
