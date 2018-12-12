@@ -59,7 +59,8 @@ let showUsersParam = (id) => {
     fetch(`${url}${id}`)
         .then(response => response.json())
         .then(parsedData => displaySingleUser(parsedData))
-        .catch((error) => console.warn(error))
+        .catch((error) => console.warn(error));
+        singleUser.value = "";
 }
 
 getUserById.addEventListener("click", function (inputValue) {
@@ -71,10 +72,6 @@ getUserById.addEventListener("click", function (inputValue) {
 
 let postNew = document.querySelector(".postNew");
 
-let postUser = (data) => {
-    console.log(data)
-}
-
 let enterPost = () => {
     fetch(url, {
             method: "POST",
@@ -82,12 +79,13 @@ let enterPost = () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                "studentName": newUser.value
+                "studentName": newUser.value,
             })
         })
         .then(response => response.json())
         .then(parsedData => postUser(parsedData))
-        .catch(error => console.warn(error))
+        .catch(error => console.warn(error));
+        newUser.value = "";
 }
 
 postNew.addEventListener("click", enterPost)
@@ -99,9 +97,9 @@ let changeDate = document.querySelector('.changeDate');
 let changeSubject = document.querySelector('.changeSubject');
 
 const addChange = () => {
-    let idToChange = document.querySelector('.idToChange').value;
+    let idToChange = document.querySelector('.idToChange');
 
-    fetch(`${url}${idToChange}`, {
+    fetch(`${url}${idToChange.value}`, {
         method: 'PUT',
         headers: {
             "Content-Type": "application/json"
@@ -111,7 +109,10 @@ const addChange = () => {
             "nextWatchDate": changeDate.value,
             "nextWatchSubject": changeSubject.value
         })
-    })
+    });
+    idToChange.value = "";
+    changeDate.value = "";
+    changeSubject.value = "";
 }
 
 updateUser.addEventListener('click', addChange);
@@ -119,15 +120,15 @@ updateUser.addEventListener('click', addChange);
 //XXXXXXXXXXXXXXXXXXXXXXXXXX DELETE REQUEST XXXXXXXXXXXXXXXXXXXXXXXXXX
 let deleteUserById = document.querySelector('.deleteUserById');
 
-
 const eraseUser = () => {
-    let idToDelete = document.querySelector('.idToDelete').value;
-    fetch(`${url}${idToDelete}`, {
+    let idToDelete = document.querySelector('.idToDelete');
+    fetch(`${url}${idToDelete.value}`, {
             method: 'DELETE',
         })
         .then(response => response.json())
         .then(parsedData => console.log(parsedData))
-        .catch((error) => console.warn(error))
+        .catch((error) => console.warn(error));
+    idToDelete.value = "";
 
 }
 

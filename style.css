@@ -15,7 +15,7 @@ button {
     background-color: rgb(66, 168, 143);
     color: white;
     text-transform: uppercase;
-    margin-top: 5px;
+    margin: 5px;
 }
 
 input {
@@ -28,18 +28,34 @@ div {
     padding: 5px;
     margin: 0 auto;
     padding-top: 30px;
-    height: 100vh;
+    height: 20vh;
+    text-align: center;
 }
 
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-template-areas: "Get Post Update Delete";
 }
 
 .Get {
     grid-area: Get;
+}
+.usersList {
+list-style: none;
+text-align: left;
+padding: 0;
+width: 20vw;
+margin: auto;
+}
+.usersList li {
+    border-bottom: 2px solid rgb(219, 233, 219);
+    background-color: rgb(236, 245, 243);
+    border-radius: 3px;
+    padding: 10px 15px;
+    font-size: 0.7em;
+    text-transform: uppercase;
 }
 
 .Post {
@@ -52,5 +68,13 @@ div {
 
 .Delete {
     grid-area: Delete;
-    margin: 0;
+}
+
+.users {
+    grid-row: 2;
+    grid-column: 1/5;
+    border-right: none;
+    border-top: 1px solid rgb(243, 243, 243);
+    width: 80vw;
+    margin-top: 10px;
 }
