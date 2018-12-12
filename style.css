@@ -1,0 +1,56 @@
+body {
+    background-color: rgb(220, 230, 224);
+    font-family: sans-serif;
+}
+
+h4 {
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 1px solid;
+    margin: 10px;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: rgb(66, 168, 143);
+    color: white;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+input {
+    margin: 4px 0;
+    padding: 5px;
+}
+
+div {
+    border-right: 1px solid rgb(243, 243, 243);
+    padding: 5px;
+    margin: 0 auto;
+    padding-top: 30px;
+    height: 100vh;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "Get Post Update Delete";
+}
+
+.Get {
+    grid-area: Get;
+}
+
+.Post {
+    grid-area: Post;
+}
+
+.Update {
+    grid-area: Update;
+}
+
+.Delete {
+    grid-area: Delete;
+    margin: 0;
+}
